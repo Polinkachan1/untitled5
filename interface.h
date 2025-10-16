@@ -31,8 +31,10 @@ class TInterface : public QWidget {
     // Элементы для изменения корней
     QPushButton *changeRootButton;
     QLineEdit *changeRoot;
+    QLineEdit *changeRootReal, *changeRootImag;  // ДОБАВИТЬ ЭТИ СТРОКИ
 
     // Элементы для изменения размерности
+    QLineEdit *resizeInput;  // ДОБАВИТЬ ЭТУ СТРОКУ
     QPushButton *resizeButton;
 
     // Элементы для вычисления значения

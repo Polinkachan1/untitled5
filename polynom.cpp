@@ -204,6 +204,7 @@ void Polynom::setRootsFromArray(Array& sourceArray, int startIndex) {
     calculateCoefficients();
     cout << "Корни полинома успешно установлены из массива!" << endl;
 }
+
 void Polynom::outputForm1(std::ostream& out) {
     bool firstItem = true;
 
