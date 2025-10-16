@@ -189,14 +189,43 @@ void TInterface::findValueAtPoint() {
         output->setText("Ошибка: неверная точка");
         return;
     }
+
     number point(x, 0);
     number result = polynom->findNumberInPoint(point);
+
     QString resultStr;
-    if (result.getIm() == 0) {
-        resultStr = QString::number(result.getRe());
+    double re = result.getRe();
+    double im = result.getIm();
+
+    if (im == 0) {
+        // Только действительная часть
+        resultStr = QString::number(re);
+    } else if (re == 0) {
+        // Только мнимая часть
+        if (im == 1) {
+            resultStr = "i";
+        } else if (im == -1) {
+            resultStr = "-i";
+        } else {
+            resultStr = QString::number(im) + "i";
+        }
     } else {
-        resultStr = QString("%1 + i*%2").arg(result.getRe()).arg(result.getIm());
+        // Обе части
+        if (im > 0) {
+            if (im == 1) {
+                resultStr = QString::number(re) + " + i";
+            } else {
+                resultStr = QString::number(re) + " + " + QString::number(im) + "i";
+            }
+        } else {
+            if (im == -1) {
+                resultStr = QString::number(re) + " - i";
+            } else {
+                resultStr = QString::number(re) + " - " + QString::number(-im) + "i";
+            }
+        }
     }
+
     value->setText("Результат: " + resultStr);
     print();
 }
