@@ -3,7 +3,7 @@
 TInterface::TInterface(QWidget *parent)
     : QWidget(parent), currentDegree(0), rootsEntered(0), an(1, 0) {
     setWindowTitle("Работа с полиномами");
-    setFixedSize(500, 500);
+    setFixedSize(600, 600);
 
     polynom = new Polynom();
     rootsArray = new Array();
